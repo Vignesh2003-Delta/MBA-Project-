@@ -897,6 +897,7 @@ function getProfileTag(scores, cls) {
 
 // ===== SINGLE PROFILER =====
 function analyzeSingle() {
+  logActivity('Single Profile Generated');
   const btn = document.getElementById('single-analyze-btn');
   btn.innerHTML = '<span class="spinner"></span> Analyzing...';
   btn.disabled = true;
@@ -1050,6 +1051,7 @@ function getMappedRow(rawRow) {
 let allResults = [];
 
 function analyzeBulk() {
+  logActivity('Bulk Analysis Started');
   const btn = document.getElementById('bulk-analyze-btn');
   btn.disabled = true;
   btn.innerHTML = '<span class="spinner"></span> Processing...';

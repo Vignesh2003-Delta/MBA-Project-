@@ -8,7 +8,7 @@ const sbClient = supabase.createClient(_supabaseUrl, _supabaseKey);
 async function logActivity(actionName) {
     try {
         const { error } = await sbClient
-            .from('user_logs')
+            .from('user logs')
             .insert([{ 
                 action: actionName, 
                 user_agent: navigator.userAgent 

@@ -1,34 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<script>
-const _supabaseUrl = 'https://duvbxqywfohzgcwknfjw.supabase.co';
-const _supabaseKey = 'sb_publishable_nE0AMLIJTPedUFooLjhtSw_aaO-JgPk';
-
-// Use 'supabaseClient' here instead of 'supabase'
-const supabaseClient = supabase.createClient(_supabaseUrl, _supabaseKey);
-
-// 2. Update your log function to use the new name
-async function logActivity(actionName) {
-  try {
-    const { data, error } = await supabaseClient  // Updated name here
-      .from('user_logs')
-      .insert([
-        { 
-          action: actionName, 
-          user_agent: navigator.userAgent 
-        }
-      ]);
-      
-    if (error) console.error('Supabase Error:', error);
-    else console.log("Logged:", actionName);
-  } catch (err) {
-    console.error("Connection failed:", err);
-  }
-</script>
-<meta charset="UTF-8">
+ <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>InvestMind — Behavioral Profiling & ML Analysis Platform</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">

@@ -1,6 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+  // 2. Initialize the Supabase Client
+  const _supabaseUrl = 'https://duvbxqywfohzgcwknfjw.supabase.co';
+  const _supabaseKey = 'sb_publishable_nE0AMLIJTPedUFooLjhtSw_aaO-JgPk';
+  const supabase = supabase.createClient(_supabaseUrl, _supabaseKey);
+
+  // 3. Create a Function to Log User Activity
+  async function logActivity(actionName) {
+    const { data, error } = await supabase
+      .from('user_logs')
+      .insert([
+        { 
+          action: actionName, 
+          user_agent: navigator.userAgent 
+        }
+      ]);
+      
+    if (error) console.error('Error logging to Supabase:', error);
+  }
+
+  // 4. Automatically Log when someone visits the site
+  window.onload = () => {
+    logActivity('Page Visit');
+  };
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>InvestMind — Behavioral Profiling & ML Analysis Platform</title>
